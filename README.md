@@ -84,8 +84,8 @@ The app consists of following three Screens/Pages:
  * Subodh Garg
  
 ##Acknowledgements
- * **Infilect Corp.** : Idea and Detailed instructions for the App.
- * This project is started as the part of coding assignment.
+ * **Infilect Corp.** : Provided idea and detailed instructions for the App.
+ * This project is started as the part of a coding assignment.
  * Any feedback would be truly appreciated :)
 
 *NOTE* : This project is under development (started on *May 9, 2016*).

@@ -1,0 +1,19 @@
+<ion-view view-title="Home">
+  <ion-content>
+    <form>
+      <div class="list">
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Email</span>
+              <input type="email" ng-model="email" placeholder="Email">
+            </label>
+            <label class="item item-input item-floating-label">
+              <span class="input-label">Password</span>
+              <input type="password" ng-model="password" placeholder="Password">
+            </label>
+          </div>
+    </form>
+      <br><br><br>
+          <button class="button button-full button-positive" ng-click="doLogin(email, password)">Log in</button>
+          <button class="button button-full button-dark" ng-click="doRegister(email, password)">Register</button>
+  </ion-content>
+</ion-view>

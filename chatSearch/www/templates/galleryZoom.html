@@ -1,0 +1,20 @@
+<ion-modal-view class="modal image-modal transparent"> <!--  on-swipe-down="closeModal()" -->
+    <ion-header-bar class="bar-balanced">
+        <!-- <button class="button button-clear button-icon ion-more" ng-click="openPopover($event)"></button> -->
+        <div class="button-bar">
+            <button class="button" ng-click="addFavorite($index, picture)">Favorite</a>
+            <button ng-click="addComment()" class="button">Comment</a>
+            <button ng-click="addTag()" class="button">Tag</a>
+            <button class="button button-clear button-icon ion-close-circled" ng-click="closeModal()"></button> 
+        </div>
+    </ion-header-bar>
+    <ion-content>
+    <ion-slide-box on-slide-changed="slideChanged($index)"  active-slide="activeSlide" delegate-handle="slideBoxScroll">
+        <ion-slide ng-repeat="picture in modalImages">
+            <ion-scroll direction="xy" scrollbar-x="false" scrollbar-y="false" overflow-scroll="false" zooming="true" min-zoom="{{zoomMin}}" style="width: 100%, height: 100%" delegate-handle="scrollHandle{{$index}}" on-scroll="updateSlideStatus(activeSlide)" on-release="updateSlideStatus(activeSlide)">
+                <div class="image" style="background-image: url('https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_z.jpg')"></div>
+            </ion-scroll>
+        </ion-slide>
+    </ion-slide-box>
+    </ion-content>
+</ion-modal-view>

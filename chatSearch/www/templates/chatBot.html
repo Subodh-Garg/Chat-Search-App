@@ -1,0 +1,38 @@
+<ion-pane>
+      <ion-header-bar class="bar-royal">
+        <button class="button icon-left ion-chevron-left button-clear" ng-click="changeState()"> Home</button>
+        <h1 class="title">Images Gallery</h1>
+      </ion-header-bar>
+        <ion-content delegate-handle="mainScroll">
+            <div ng-repeat="chat in chats">
+                
+                <div class="card" ng-if="chat.type == 'search'">
+                    <div class="item">
+                        <i class="icon ion-chatboxes"></i> {{chat.text}}
+                    </div>
+                </div>
+            
+                <div class="card" ng-if="chat.type == 'images'">
+                    <div class="item item-divider">
+                        <i class="icon ion-images"></i>
+                         My Images
+                    </div>
+                    <div class="item">
+                        <ion-scroll direction="x" scrollbar-x="false">
+                            <img ng-repeat="picture in chat.allImages.photos.photo" ng-src="https://farm{{picture.farm}}.staticflickr.com/{{picture.server}}/{{picture.id}}_{{picture.secret}}_z.jpg" ng-click="showImages($index, chat.id)" class="image-list-thumb"/>
+                        </ion-scroll>
+                    </div>
+                </div>
+                
+            </div>
+        </ion-content>
+        <form ng-submit="search()">
+              <div class="bar bar-footer item-input-inset">
+                    <label class="item-input-wrapper">
+                        <i class="icon ion-ios-search placeholder-icon"></i>
+                        <input type="text" ng-model="searchTerm" placeholder="Search">
+                    </label>
+                    <button type="submit" class="button button-calm"><i class="icon ion-paper-airplane"></i></button>
+             </div>
+        </form>
+    </ion-pane>

@@ -79,7 +79,8 @@ The app consists of following three Screens/Pages:
 #####Enhancements
  * Display and handle '*No internet connections*' in case internet is disabled.
  * Display toast (*$cordovaToast*) messages instead of popovers (*$ionicPopover*) for (*Favorites,Comment,Tag*) options. -> Tried but requires a fix.
-* Update icon and splash screen.
+ * Update icon and splash screen.
+
 ##Author
  * Subodh Garg
  

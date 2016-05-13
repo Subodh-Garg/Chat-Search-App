@@ -3,7 +3,7 @@ An hybrid chat mobile application to search photos using Flickr API.
 
 ##Synopsis
 A full-fledged chat application that displays text and images as part of the chat interface.
-Think of the following application: a user wishes to purchase an apparel item (a tshirt
+Think of the following application : a user wishes to purchase an apparel item (a tshirt
 or a dress), user texts to a bot application, and the application shows the user a set of 10 photos of 
 that apparel fetched using Flickr API. The user can navigate through them and can text the bot to get 10 new photos.  
 
@@ -34,7 +34,7 @@ The app consists of following three Screens/Pages:
 * **Flickr API** : for search results.
 
 ##Prerequisities for running using Ionic
-* First, install Node.js
+* First, install <a href="https://nodejs.org/en/">Node.js</a>
 * Clone Project ```git clone https://github.com/Subodh-Garg/Chat-Search-App```
 * ```cd Chat-Search-App\chatSearch```
 * Run following commands in terminal    
@@ -71,6 +71,21 @@ The app consists of following three Screens/Pages:
  * App requires login everytime a user wants to enter '*Chat Search*' screen -> Need to change authentication flow i.e. once authenticated should remain login and display '*logout*' option.
  * '*Chat Search*' screen does not automatically scroll down to bottom(properly) to display last entered item.
 
-##Author
+####Features Remaining
+ * '*Favorites*' option to store data permanently (locally on device or FireBase Cloud or Flickr API).
+ * '*Comment*' and '*Tag*' Backend functionality (using Flickr API's and Node.js).
+ * Outh Facebook login for user authentication -> using FireBase.
+ 
+####Enhancements
+ * Display and handle '*No internet connections*' in case internet is disabled.
+ * Display toast(*$cordovaToast*) messages instead of popovers(*$ionicPopover*) for (*Favorites,Comment,Tag*) options. -> Tried but requires a fix.
 
+##Author
+ * . Subodh Garg
+ 
 ##Acknowledgements
+ * **Infilect Corp.** : Idea and Detailed instructions for the App.
+ * This project is started as the part of coding assignment.
+ * Any feedback would be truly appreciated :)
+
+*NOTE* : This project is under development (started on May 9, 2016).

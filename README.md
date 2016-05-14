@@ -19,12 +19,12 @@ The app consists of following three Screens/Pages:
 ####App Usage
 1. **Home/Login** 
  * Fill email and password text fields -> Register(if new user) -> Login (or you can directly login using already created user :  *email*: gargsubo@gmail.com, *password*: 1234 ).
- * Handles different error cases like email/password not provided, wrong email/password etc.
+ * Handles different error cases like 'email/password not provided', 'wrong email/password' etc.
 2. **Chat Search** 
  * Type only the name of apparel (eg. *shirt*) in the search textbox and press blue (submit) button. -> Displays both apparel and searched images (per search 10 images) in form of chat interface.
  * You can scroll through images by swiping left or right.
  * Tap on an image to view in full screen mode and display related options (Favorite, Comment, Tag).
- * You can still scroll through/zoom (by pinching) images and choose can select any of the above options.
+ * You can still scroll through/zoom (by pinching) images and can select any of the above options.
 3. **Favorites** 
  * Displays added favorite item's image and title.
 

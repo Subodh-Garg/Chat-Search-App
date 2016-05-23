@@ -1,5 +1,5 @@
 #Chat-Search-App
-An hybrid chat mobile application to search photos using Flickr API.
+A hybrid chat mobile application to search photos using Flickr API.
 
 ##Synopsis
 A full-fledged chat application that displays text and images as part of the chat interface.

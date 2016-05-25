@@ -93,4 +93,6 @@ angular.module('chatSearch.services', [])
     }
     
    return favFac;
-}]);
+}])
+
+;

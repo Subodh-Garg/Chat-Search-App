@@ -1,6 +1,6 @@
 angular.module('chatSearch.controllers', [])
 
-.controller('AppCtrl', ['$scope', function($scope) {
+.controller('AppCtrl', ['$scope', '$state', 'Auth', function($scope, $state, Auth) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -8,18 +8,51 @@ angular.module('chatSearch.controllers', [])
   // listen for the $ionicView.enter event:
   //$scope.$on('$ionicView.enter', function(e) {
   //});
+    
+   Auth.$onAuth(function(authData){
+        if(authData){
+            console.log("User " + authData.uid + " is logged in with " + authData.provider);
+            console.log(authData);
+        }else{
+            console.log("User is logged out");
+            $state.go('login');
+        }
+  }); 
+    
+  $scope.logout = function(){
+    Auth.$unauth();
+    //$state.go('login');
+  };
 
 }])
 
-.controller('LoginCtrl', ['$scope', 'Auth', '$ionicPopup', '$location', function($scope, Auth, $ionicPopup, $location) {
+.controller('HomeCtrl', [ '$scope', '$state', function($scope, $state){
+    $scope.goToChat = function(){
+       $state.go('chatBot'); 
+    };
+}])
+
+.controller('LoginCtrl', ['$scope', 'Auth', '$ionicPopup', '$state', function($scope, Auth, $ionicPopup, $state) {
     
+    
+    $scope.doFacebookLogin = function(){
+      Auth.$authWithOAuthPopup("facebook").then(function(authData){
+          $state.go('app.home'); 
+      }).catch(function(error){
+          $ionicPopup.alert({
+             title: "Error!",
+             template: error.message
+          });
+      });
+    };
+          
     $scope.doLogin = function(email, password) {
         Auth.$authWithPassword({
             email: email,
             password: password
         }).then(function(authData){
             //console.log(authData);
-            $location.path("/chatBot");
+            $state.go('app.home');
         }).catch(function(error){
            $ionicPopup.alert({
               title: "Error!",
@@ -33,7 +66,7 @@ angular.module('chatSearch.controllers', [])
             email: email,
             password: password
         }).then(function(authData){
-            console.log(authData);
+           // console.log(authData);
            $ionicPopup.alert({
               title: "Congratulations!",
               template: "You have successfully registered."
@@ -48,7 +81,7 @@ angular.module('chatSearch.controllers', [])
     
 }])
 
-.controller('ChatBotCtrl', ['$scope', '$ionicPlatform', '$timeout', 'Flickr', '$ionicModal', '$ionicScrollDelegate', '$ionicSlideBoxDelegate', '$location', '$ionicPopover', '$cordovaToast', 'ChatFactory', 'FavoriteFactory','$ionicPopup', function($scope, $ionicPlatform,$timeout, Flickr, $ionicModal, $ionicScrollDelegate, $ionicSlideBoxDelegate, $location, $ionicPopover, $cordovaToast, ChatFactory, FavoriteFactory, $ionicPopup){
+.controller('ChatBotCtrl', ['$scope', '$ionicPlatform', '$timeout', 'Flickr', '$ionicModal', '$ionicScrollDelegate', '$ionicSlideBoxDelegate', '$ionicPopover', '$cordovaToast', 'ChatFactory', 'FavoriteFactory','$ionicPopup', '$state', 'Auth', function($scope, $ionicPlatform,$timeout, Flickr, $ionicModal, $ionicScrollDelegate, $ionicSlideBoxDelegate, $ionicPopover, $cordovaToast, ChatFactory, FavoriteFactory, $ionicPopup, $state, Auth){
     
     $scope.searchTerm = "";
     $scope.modalImages = [];
@@ -56,8 +89,8 @@ angular.module('chatSearch.controllers', [])
     var lastSearch = "";
     var currentChatId = 0;
     
-    $scope.changeState = function(){
-        $location.path("/app/login");
+    $scope.goToHome = function(){
+        $state.go('app.home');
     };
     
     $scope.search = function(){

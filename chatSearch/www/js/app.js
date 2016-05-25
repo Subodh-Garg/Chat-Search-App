@@ -25,23 +25,35 @@ angular.module('chatSearch', ['ionic', 'chatSearch.controllers', 'chatSearch.ser
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
+    .state('login', {
+      url: '/login',
+      templateUrl: 'templates/login.html',
+      controller: 'LoginCtrl'
+    })
+  
     .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
-
-    .state('app.login', {
-      url: '/login',
+  
+  .state('app.home', {
+      url: '/home',
       views: {
         'menuContent': {
-          templateUrl: 'templates/login.html',
-          controller: 'LoginCtrl'
+            templateUrl: 'templates/home.html',
+            controller: 'HomeCtrl'
         }
       }
-    })
-
+  })
+  
+  .state('chatBot', {
+      url: '/chatBot',
+      templateUrl: 'templates/chatBot.html',
+      controller: 'ChatBotCtrl'
+   })
+  
   .state('app.favorites', {
     url: '/favorites',
     views: {
@@ -50,13 +62,8 @@ angular.module('chatSearch', ['ionic', 'chatSearch.controllers', 'chatSearch.ser
         controller: 'FavoritesCtrl'
       }
     }
-  })
-  
-  .state('chatBot', {
-      url: '/chatBot',
-          templateUrl: 'templates/chatBot.html',
-          controller: 'ChatBotCtrl'
-   });
+  });
+    
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/login');
+  $urlRouterProvider.otherwise('/app/home');
 });

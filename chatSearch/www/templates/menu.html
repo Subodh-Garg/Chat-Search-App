@@ -18,14 +18,14 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close href='#/app/login'>
-         Home  
+        <ion-item menu-close class="item item-icon-left dark" href='#/app/home'>
+            <i class="icon ion-home"></i> Home  
         </ion-item>
-        <!-- <ion-item menu-close href='#/chatBot'>
-          Chat Bot
-        </ion-item> -->
-        <ion-item menu-close href="#/app/favorites">
-          My Favorites
+        <ion-item menu-close class="item item-icon-left dark" href="#/app/favorites">
+          <i class="icon ion-android-favorite"></i> My Favorites
+        </ion-item>
+        <ion-item menu-close class="item item-icon-left dark" ng-click="logout()">
+            <i class="icon ion-log-out"></i> Logout 
         </ion-item>
       </ion-list>
     </ion-content>

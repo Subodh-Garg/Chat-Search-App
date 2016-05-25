@@ -68,13 +68,13 @@ The app consists of following three Screens/Pages:
 
 #####Known Issues
  * Typing '*more*' in search field fetches old photos -> Need to fetch 10 new photos.
- * App requires login everytime a user wants to enter '*Chat Search*' screen -> Need to change authentication flow i.e. once authenticated should remain login and display '*logout*' option.
+ * App requires login everytime a user wants to enter '*Chat Search*' screen -> Need to change authentication flow i.e. once authenticated should remain login and display '*logout*' option --> Completed.
  * '*Chat Search*' screen does not automatically scroll down to bottom(properly) to display last entered item.
 
 #####Features Remaining
  * '*Favorites*' option to store data permanently (locally on device or FireBase Cloud or Flickr API).
  * '*Comment*' and '*Tag*' Backend functionality (using Flickr API's and Node.js).
- * Outh Facebook login for user authentication -> using FireBase.
+ * Outh Facebook login for user authentication -> using FireBase --> Completed.
  
 #####Enhancements
  * Display and handle '*No internet connections*' in case internet is disabled.

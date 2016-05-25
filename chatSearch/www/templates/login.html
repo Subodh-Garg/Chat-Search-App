@@ -1,4 +1,9 @@
-<ion-view view-title="Home">
+<ion-view>
+    
+  <ion-header-bar class="bar-royal">
+    <h1 class="title">Sign-In</h1>
+  </ion-header-bar>
+    
   <ion-content>
     <form>
       <div class="list">
@@ -15,5 +20,10 @@
       <br><br><br>
           <button class="button button-full button-positive" ng-click="doLogin(email, password)">Log in</button>
           <button class="button button-full button-dark" ng-click="doRegister(email, password)">Register</button>
+      <br>
+      <h3 style="text-align: center; color: #A9A9A9"> OR </h2>
+      <br>
+      <button class="button button-full button-positive" ng-click="doFacebookLogin()"><i class="icon ion-social-facebook"></i> &nbsp; Log in with Facebook</button>
   </ion-content>
+    
 </ion-view>
